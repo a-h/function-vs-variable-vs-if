@@ -21,3 +21,14 @@ func Var(w io.Writer, devMode bool) {
 	}
 	w.Write([]byte(s))
 }
+
+func Or(w io.Writer, devMode bool) {
+	w.Write([]byte(get(devMode, "dev", "prod")))
+}
+
+func get(devMode bool, a, b string) string {
+	if devMode {
+		return a
+	}
+	return b
+}

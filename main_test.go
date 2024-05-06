@@ -44,3 +44,19 @@ func BenchmarkVarProd(b *testing.B) {
 		w.Reset()
 	}
 }
+
+func BenchmarkOrDev(b *testing.B) {
+	w := bytes.NewBuffer(nil)
+	for i := 0; i < b.N; i++ {
+		Or(w, true)
+		w.Reset()
+	}
+}
+
+func BenchmarkOrProd(b *testing.B) {
+	w := bytes.NewBuffer(nil)
+	for i := 0; i < b.N; i++ {
+		Or(w, false)
+		w.Reset()
+	}
+}
