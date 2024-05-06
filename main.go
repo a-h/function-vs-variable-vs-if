@@ -6,6 +6,17 @@ func Plain(w io.Writer, devMode bool) {
 	w.Write([]byte("prod"))
 }
 
+func PlainVar(w io.Writer, devMode bool) {
+	prod := "prod"
+	w.Write([]byte(prod))
+}
+
+const prod = "prod"
+
+func PlainConst(w io.Writer, devMode bool) {
+	w.Write([]byte(prod))
+}
+
 func If(w io.Writer, devMode bool) {
 	if devMode {
 		w.Write([]byte("dev"))

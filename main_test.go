@@ -13,6 +13,22 @@ func BenchmarkPlain(b *testing.B) {
 	}
 }
 
+func BenchmarkPlainVar(b *testing.B) {
+	w := bytes.NewBuffer(nil)
+	for i := 0; i < b.N; i++ {
+		PlainVar(w, false)
+		w.Reset()
+	}
+}
+
+func BenchmarkPlainConst(b *testing.B) {
+	w := bytes.NewBuffer(nil)
+	for i := 0; i < b.N; i++ {
+		PlainConst(w, false)
+		w.Reset()
+	}
+}
+
 func BenchmarkIfDev(b *testing.B) {
 	w := bytes.NewBuffer(nil)
 	for i := 0; i < b.N; i++ {
