@@ -76,3 +76,11 @@ func BenchmarkOrProd(b *testing.B) {
 		w.Reset()
 	}
 }
+
+func BenchmarkSlice(b *testing.B) {
+	w := bytes.NewBuffer(nil)
+	for i := 0; i < b.N; i++ {
+		Slice(w)
+		w.Reset()
+	}
+}

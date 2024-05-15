@@ -43,3 +43,18 @@ func get(devMode bool, a, b string) string {
 	}
 	return b
 }
+
+// Slice behaviour.
+
+var strings = [][]byte{
+	[]byte("prod"),
+}
+
+// Would load the values from a file instead.
+func UpdateStrings() {
+	strings[0] = []byte("dev")
+}
+
+func Slice(w io.Writer) {
+	w.Write(strings[0])
+}
